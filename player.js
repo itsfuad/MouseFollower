@@ -195,9 +195,8 @@ export class Player{
             }
         }
 
-        this.CURRENT_FRAME = Math.floor(this.counter++ * (this.fps / 10) ) % this.frames;
-        //translate to center of sprite
-        
+        this.counter = Math.floor(this.counter + 1) % 1000;
+        this.CURRENT_FRAME = Math.floor(this.counter * (this.fps / 10) ) % this.frames;
         ctx.drawImage(this.sprite, this.CURRENT_FRAME * this.spriteWidth, this.SPRITE_NO * this.spriteHeight, this.spriteWidth, this.spriteHeight, this.x, this.y - this.spriteHeight/2, this.spriteWidth, this.spriteHeight);
     }
     
